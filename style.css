@@ -1,37 +1,46 @@
-
 #eredmeny{
+    border: 1px solid black;
     width: 100%;
-    height: 40vw;
+    height: 42vw;
     display: flex;
+	background-color: #5E460E;
 }
 
 #kartyabox{
-    border: 1px solid red;
+    border: 2px solid red;
+    margin: 10px;
     width: 100%; 
     height: 20vw;
-
+	background-color: #C08600;
+	
     
 }
 #pontbox{
-    border: 1px solid red;
+    border: 2px solid red;
+    margin: 10px;
     width: 100%;
     height: 20vw;
+	background-color: #C08600;
 
     
 }
 #tabla{
-    border: 1px solid red;
+    border: 2px solid red;
     width: 50%;
     height: 40vw;
     float: left;
     display: flex;
     flex-direction: column;
+
+
     
 }
 #korokbox{
-    border: 1px solid red;
+    border: 2px solid red;
+    margin: 10px;
     width: 19%;
     height: 40vw;
+	background-color: #D5D2CB;
 }
 
 #leftside{
