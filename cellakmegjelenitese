@@ -1,0 +1,15 @@
+function cellakkeverese() {
+    
+    for (let i = 0; i < cellak.length; i++) {
+        var random = Math.floor(Math.random()*(30-1+1)+1);
+        var index = cellak[i].info.id;
+        var kep = document.createElement("img");
+        if (cellak[i].type=="kartya") {
+            kep.src = "img/"+random+".png"
+        }
+        var div = document.getElementById(index);
+        console.log(random)
+        div.appendChild(kep);
+        
+    }
+}
