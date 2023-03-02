@@ -137,6 +137,17 @@ function Cellakmegjelenítése(){
 
 }
 
+function cellakmegkeverese()
+{
+    for (let index = 0; index < 100; index++) {
+        var vel1 = Math.floor(Math.random()*30);
+        var vel2 = Math.floor(Math.random()*30);
+        var sv = cellak[vel1]
+        cellak[vel1] = cellak[vel2];
+        cellak[vel2] = sv;
+    }
+}
+
 
 function main() 
 {
@@ -144,6 +155,7 @@ function main()
     jatekterelrendezése();
     jatekterbetoltese();
     Cellakfeltoltese();
+    cellakmegkeverese();
     Cellakmegjelenítése();
 }
 main();
