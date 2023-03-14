@@ -58,9 +58,9 @@ var cellak=[
 
 ]
 
-var kepKivalasztva = false;
-var kepElhelyezve = true;
-var kepIndex = 0;
+var kepkivalasztva = false;
+var kepelhelyezve = true;
+var kepindex = 1;
 var masikize;
 function tablageneralas() {
     var k = 0;
@@ -75,11 +75,15 @@ function tablageneralas() {
             k++;
 
             oszlopdiv.addEventListener("click",function(){
-                if(kepKivalasztva && !kepElhelyezve){
-                    kepElhelyezve = true
-                    kepKivalasztva = false
-                    var kep = document.createElement("img")
-                    kep.src = "img/"+kepIndex+".png"
+                if(kepkivalasztva && !kepelhelyezve){
+                    kepelhelyezve = true
+                    console.log(cellak);
+                    kepkivalasztva = false
+                    var kep = document.createElement("img");
+                    if(cellak[kepindex].type == "kártya")
+                        kep.src = "img/"+kepindex+".png";
+                    else
+                        kep.src = "varak/"+(kepindex-23)+".png"
                     this.appendChild(kep)
                 }    
             })
@@ -88,6 +92,22 @@ function tablageneralas() {
         tabla.appendChild(sordiv);
         
     }
+}
+function Cellakfeltoltese()
+{
+    for (let i = 0; i < 23; i++) {
+        cellak[i] = {};
+        cellak[i].type = "kártya"
+        cellak[i].info = kartyaadatok[i];
+        
+    }
+    for (let i = 23; i < 30; i++) {
+        cellak[i] = {};
+        cellak[i].type = "vár";
+        cellak[i].info = varadatok[i-23];        
+    }
+
+    console.log(cellak);
 }
 function jatekterbetoltese()
 {
@@ -117,30 +137,52 @@ function jatekterelrendezése()
 }
 
 function pothelyregeneralas() {
-    var kep = document.createElement("img")
-    var pothely = document.getElementById("boxize")
-    for (let i = 0; i < 23; i++) {
-        kep.src = "img/"+i+".png"
-        kep.style.width = "100px"
-        kep.style.height = "100px"
-        kep.value = 1;
+    var pothely = document.getElementById("boxize");
+    for (let i = 1; i < 23; i++) {
+        var kep = document.createElement("img");
+        kep.src = "img/"+i+".png";
+        kep.style.width = "100px";
+        kep.style.height = "100px";
+        kep.value = i;
         pothely.appendChild(kep)
+        kep.addEventListener("click",function(){
+            if(!kepkivalasztva && kepelhelyezve){
+                kepindex = this.value;
+                //console.log(kepindex);
+                kepkivalasztva = true;
+                this.style.visibility = "hidden";
+                kepelhelyezve = false;
+                
+            }
+        })
 
+
+    }
+    var heh = 1
+    for (let j = 24; j < 40; j++) {
+        var kep = document.createElement("img")
+        kep.src = "varak/"+(j-23)+".png";
+        kep.style.width = "100px";
+        kep.style.height = "100px";
+        kep.value = j;
+        heh++
+        pothely.appendChild(kep) 
+        kep.addEventListener("click",function(){
+            if(!kepkivalasztva && kepelhelyezve){
+                kepindex = this.value
+                console.log(kepindex);
+                kepkivalasztva = true;
+                this.style.visibility = "hidden"
+                kepelhelyezve = false
+                
+            }
+        })
     }
     
 
     
     
     //kep.setAttribute("onclick","Kepkivalsztas(this)")
-    kep.addEventListener("click",function(){
-        if(!kepkivalasztva && elhelyezve){
-            kepindex = this.value
-            kepkivalasztva = true;
-            this.style.visibility = "hidden"
-            elhelyezve = false
-            
-        }
-    })
 
 
 }
@@ -155,6 +197,7 @@ function main()
     tablageneralas();
     jatekterelrendezése();
     jatekterbetoltese();
+    Cellakfeltoltese()
     pothelyregeneralas();
 
 }
