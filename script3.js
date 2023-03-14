@@ -79,7 +79,7 @@ function tablageneralas() {
                     kepElhelyezve = true
                     kepKivalasztva = false
                     var kep = document.createElement("img")
-                    kep.src = "img"/+kepIndex+".jpg"
+                    kep.src = "img/"+kepIndex+".png"
                     this.appendChild(kep)
                 }    
             })
@@ -116,29 +116,34 @@ function jatekterelrendezése()
     
 }
 
-function Pothelyregeneral()
-{
-    var kep = document.createElement("img");
-    kep.src = "img/kartyak/1.png";
-    kep.style = "200px";
-    kep.value = 1;
+function pothelyregeneralas() {
+    var kep = document.createElement("img")
+    var pothely = document.getElementById("boxize")
+    for (let i = 0; i < 23; i++) {
+        kep.src = "img/"+i+".png"
+        kep.style.width = "100px"
+        kep.style.height = "100px"
+        kep.value = 1;
+        pothely.appendChild(kep)
 
-    //kep.setAttribute("onclick","Kepkivalasztas(this))")
+    }
+    
 
-    kep.addEventListener("click", function()
-    {
-        if(!kepKivalasztva && kepElhelyezve){
-            izé = (this(value));
-            kepKivalasztva = true;
-            this.style.visibility = "hidden";
-            kep
+    
+    
+    //kep.setAttribute("onclick","Kepkivalsztas(this)")
+    kep.addEventListener("click",function(){
+        if(!kepkivalasztva && elhelyezve){
+            kepindex = this.value
+            kepkivalasztva = true;
+            this.style.visibility = "hidden"
+            elhelyezve = false
+            
         }
     })
-    var pothely = document.getElementById("pothely");
-    pothely.appendChild(kep);
+
+
 }
-
-
 
 
 
@@ -150,7 +155,7 @@ function main()
     tablageneralas();
     jatekterelrendezése();
     jatekterbetoltese();
-    Pothelyregeneral();
+    pothelyregeneralas();
 
 }
 main();
