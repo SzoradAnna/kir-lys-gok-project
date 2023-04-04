@@ -93,6 +93,20 @@ function tablageneralas() {
         
     }
 }
+function oszlop() {
+    var osszeg
+    for (let i = 0; i < 5; i++) {
+        osszeg = 0
+        for (let j = 0; j < 6; j++) {
+            osszeg+=cellak[j*5+i].info.value
+            
+            
+        }
+        console.log("Oszlop összeg :"+osszeg)
+        
+        
+    }
+}
 function Cellakfeltoltese()
 {
     for (let i = 0; i < 23; i++) {
