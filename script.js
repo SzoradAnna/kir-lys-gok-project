@@ -187,6 +187,20 @@ function pothelyregeneralas() {
 
 }
 
+function sorokosszege() {
+    var osszeg
+    for (let i = 0; i < 5; i++) {
+        osszeg = 0
+        for (let j = 0; j < 6; j++) {
+            osszeg+=cellak[i*6+j].info.value
+            
+            
+        }
+        console.log(osszeg)
+        
+        
+    }
+}
 
 
 
