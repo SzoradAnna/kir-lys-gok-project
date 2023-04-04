@@ -81,9 +81,9 @@ function tablageneralas() {
                     kepkivalasztva = false
                     var kep = document.createElement("img");
                     if(cellak[kepindex].type == "kártya")
-                        kep.src = "img/"+kepindex+".png";
+                        kep.src =kepindex+".png";
                     else
-                        kep.src = "varak/"+(kepindex-23)+".png"
+                        kep.src = "varak"+(kepindex-23)+".png"
                     this.appendChild(kep)
                 }    
             })
